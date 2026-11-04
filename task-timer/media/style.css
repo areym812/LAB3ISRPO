@@ -1,0 +1,329 @@
+:root {
+    color-scheme: dark light;
+    --panel: var(--vscode-editor-background);
+    --text: var(--vscode-foreground);
+    --muted: var(--vscode-descriptionForeground);
+    --border: var(--vscode-panel-border);
+    --button: var(--vscode-button-background);
+    --button-text: var(--vscode-button-foreground);
+    --accent: var(--vscode-focusBorder);
+    --card: var(--vscode-sideBar-background);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--panel);
+    color: var(--text);
+    font-family: var(--vscode-font-family);
+    font-size: var(--vscode-font-size);
+}
+
+body[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+body[data-theme="light"] {
+    color-scheme: light;
+}
+
+.app {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 28px;
+}
+
+.top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 4px;
+    font-size: 28px;
+}
+
+h2 {
+    margin-bottom: 6px;
+}
+
+h3 {
+    font-size: 15px;
+}
+
+.eyebrow {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.status {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 22px;
+}
+
+button {
+    font: inherit;
+    color: var(--text);
+    background: var(--vscode-button-secondaryBackground, transparent);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.tab {
+    border: 0;
+    border-radius: 6px 6px 0 0;
+    background: transparent;
+    color: var(--muted);
+}
+
+.tab.active {
+    color: var(--text);
+    border-bottom: 2px solid var(--accent);
+}
+
+.primary {
+    color: var(--button-text);
+    background: var(--button);
+    border-color: var(--button);
+}
+
+.danger {
+    margin-top: 12px;
+    color: var(--vscode-errorForeground);
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.timer-card, .stat-card, .chart-card, .settings-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.timer-card {
+    max-width: 600px;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+
+.clock {
+    font-size: clamp(52px, 12vw, 88px);
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -3px;
+    margin: 16px 0 8px;
+}
+
+.progress-track {
+    height: 7px;
+    border-radius: 999px;
+    background: var(--vscode-input-background);
+    overflow: hidden;
+    margin: 24px 0;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.2s linear;
+}
+
+.timer-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.secondary-buttons {
+    margin-top: 12px;
+}
+
+.selected {
+    border-color: var(--accent);
+}
+
+.small-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-card strong {
+    font-size: 22px;
+    overflow-wrap: anywhere;
+}
+
+.section-heading {
+    margin-bottom: 18px;
+}
+
+.chart-card {
+    margin-bottom: 18px;
+}
+
+.chart {
+    height: 210px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 10px;
+    padding-top: 18px;
+}
+
+.bar-column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    gap: 6px;
+}
+
+.bar-value, .bar-label {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.bar-track {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    max-width: 42px;
+    flex: 1;
+    background: var(--vscode-input-background);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+.bar {
+    width: 100%;
+    min-height: 0;
+    background: var(--accent);
+    border-radius: 5px 5px 0 0;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.history-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-row span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.settings-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.settings-card > label:not(.check-row) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 9px;
+    color: var(--text);
+    background: var(--vscode-input-background);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font: inherit;
+}
+
+.check-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-row input {
+    width: 16px;
+    height: 16px;
+}
+
+.footer {
+    margin-top: 28px;
+    font-size: 11px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .app {
+        padding: 16px;
+    }
+
+    .small-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timer-card, .stat-card, .chart-card, .settings-card {
+        padding: 16px;
+    }
+}
