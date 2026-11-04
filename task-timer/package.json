@@ -1,26 +1,30 @@
 {
-    "name": "@types/vscode",
-    "version": "1.144.0",
-    "description": "TypeScript definitions for vscode",
-    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vscode",
-    "license": "MIT",
-    "contributors": [
-        {
-            "name": "Visual Studio Code Team, Microsoft",
-            "githubUsername": "microsoft",
-            "url": "https://github.com/microsoft"
-        }
+  "name": "task-timer",
+  "displayName": "Task Timer",
+  "description": "A simple work timer with settings and productivity statistics.",
+  "version": "1.0.0",
+  "publisher": "student-project",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:taskTimer.open"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "taskTimer.open",
+        "title": "Task Timer: Open"
+      }
     ],
-    "main": "",
-    "types": "index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-        "directory": "types/vscode"
-    },
-    "scripts": {},
-    "dependencies": {},
-    "peerDependencies": {},
-    "typesPublisherContentHash": "82e553a06a42e6e920e0c59ca90e1a98fc6789441e36d15ab6b0849e7e7c2f9a",
-    "typeScriptVersion": "5.6"
+    "keybindings": []
+  },
+  "scripts": {
+    "check": "node --check extension.js && node --check media/app.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0"
+  }
 }
